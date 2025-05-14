@@ -1,0 +1,19 @@
+<div class="modal-header">
+      <h5 class="modal-title">Modificar Caballos</h5>
+      <button type="button" class="close" aria-label="Close" (click)="cerrarModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form *ngIf="cilindrada">
+        <div class="form-group">
+          <label for="name">Cilindrada</label>
+          <input type="text" id="name" [(ngModel)]="cilindrada.cilindrada" name="cilindrada" class="form-control" placeholder="cilindrada" />
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar Cambios</button>
+      <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+    </div>
+    

@@ -1,0 +1,31 @@
+<app-menu></app-menu>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">cilindrada</th>
+      <th scope="col">Acciones</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Nuevo</th>
+      <td><input class="usuario-admin" type="text" placeholder="Nombre" [(ngModel)]="nuevacilindrada.cilindrada" required></td>
+      <td><button  class="btn btn-secondary" (click)="crearCilindrada()"> Crear</button></td>
+      <td><button class="btn btn-primary"(click)="resetFormulario()"> limpiar</button></td>
+    </tr>
+
+    <tr *ngFor="let Cilindrada of cilindrada">
+      <th scope="row">{{Cilindrada.id_cilindrada}}</th>
+      <td>{{Cilindrada.cilindrada}}</td>
+ 
+ 
+      <td><button  class="btn btn-danger" (click)="eliminarCilindrada(Cilindrada.id_cilindrada)" > Eliminar</button></td>
+      <td><button  class="btn btn-success" (click)="IrAModificarCilindrada(Cilindrada)">Modificar</button></td>
+
+    </tr>
+  
+  </tbody>
+
+</table>

@@ -1,0 +1,37 @@
+{
+  "usuarios": [
+    {
+      "id_usuario": 1,
+      "nombre": "Juan Pérez",
+      "email": "juan.perez@example.com",
+      "password": "123456",
+      "estado": "activo",
+      "direccion": "Calle Falsa 123",
+      "es_admin": true,
+      "fecha_creacion": "2025-05-06T10:30:00Z",
+      "id": "38b5"
+    },
+    {
+      "id": "a2ec",
+      "id_usuario": 0,
+      "nombre": "Aitor",
+      "email": "sator@gmial.com",
+      "password": "123",
+      "estado": "activo",
+      "direccion": "Bilbao",
+      "es_admin": false,
+      "fecha_creacion": "2025-05-06T14:25:44.514Z"
+    },
+    {
+      "id": "5309",
+      "id_usuario": 0,
+      "nombre": "weawe",
+      "email": "sator2@gmail.com",
+      "password": "123",
+      "estado": "activo",
+      "direccion": "Bilbao",
+      "es_admin": false,
+      "fecha_creacion": "2025-05-06T14:26:47.212Z"
+    }
+  ]
+}

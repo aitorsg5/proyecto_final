@@ -1,0 +1,31 @@
+<app-menu></app-menu>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">caballos</th>
+      <th scope="col">Acciones</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Nuevo</th>
+      <td><input class="usuario-admin" type="text" placeholder="Nombre" [(ngModel)]="nuevocaballo.caballos" required></td>
+      <td><button  class="btn btn-secondary" (click)="crearCaballos()"> Crear</button></td>
+      <td><button class="btn btn-primary"(click)="resetFormulario()"> limpiar</button></td>
+    </tr>
+
+    <tr *ngFor="let Caballos of caballos">
+      <th scope="row">{{Caballos.id}}</th>
+      <td>{{Caballos.caballos}}</td>
+ 
+ 
+      <td><button  class="btn btn-danger" (click)="eliminarcaballos(Caballos.id)" > Eliminar</button></td>
+      <td><button  class="btn btn-success" (click)="IrAModificarcaballos(Caballos)">Modificar</button></td>
+
+    </tr>
+  
+  </tbody>
+
+</table>

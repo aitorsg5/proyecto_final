@@ -1,0 +1,129 @@
+<div class="modal-header">
+      <h5 class="modal-title">Modificar Coche</h5>
+      <button type="button" class="close" aria-label="Close" (click)="cerrarModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form *ngIf="coche">
+        <div class="form-group">
+          <label for="precio">Precio</label>
+          <input type="number" id="precio" [(ngModel)]="coche.precio" name="precio" class="form-control" placeholder="Precio" />
+        </div>
+        <div class="form-group">
+          <label for="imagen">Imagen</label>
+          <input type="text" id="imagen" [(ngModel)]="coche.imagen" name="imagen" class="form-control" placeholder="Imagen" />
+        </div>
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <input type="text" id="descripcion" [(ngModel)]="coche.descripcion" name="descripcion" class="form-control" placeholder="Descripción" />
+        </div>
+        <div class="form-group">
+          <label for="fecha_de_fabricacion">Fecha de Fabricación</label>
+          <input type="date" id="fecha_de_fabricacion" [(ngModel)]="coche.fecha_de_fabricacion" name="fecha_de_fabricacion" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="motor">Motor</label>
+          <button mat-button [matMenuTriggerFor]="motorMenu" class="form-control">
+            <div class="valign-center">
+              <span class="Motor">{{ obtenerNombreMotor(coche.id_motor) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #motorMenu="matMenu">
+            <button mat-menu-item *ngFor="let motor of motores" (click)="coche.id_motor = motor.id_motor">
+              {{ motor.motor }}
+            </button>
+          </mat-menu>
+        </div>
+        <div class="form-group">
+          <label for="caballos">Caballos</label>
+          <button mat-button [matMenuTriggerFor]="caballosMenu" class="form-control">
+            <div class="valign-center">
+              <span class="Caballos">{{ obtenerNombreCaballos(coche.id_caballos) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #caballosMenu="matMenu">
+            <button mat-menu-item *ngFor="let caballos of caballos" (click)="coche.id_caballos = caballos.id">
+              {{ caballos.caballos }}
+            </button>
+          </mat-menu>
+        </div>
+        <div class="form-group">
+          <label for="modelo">Modelo</label>
+          <button mat-button [matMenuTriggerFor]="modeloMenu" class="form-control">
+            <div class="valign-center">
+              <span class="Modelo">{{ obtenerNombreModelo(coche.id_modelo) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #modeloMenu="matMenu">
+            <button mat-menu-item *ngFor="let modelo of modelos" (click)="coche.id_modelo = modelo.id_modelo">
+              {{ modelo.modelo }}
+            </button>
+          </mat-menu>
+        </div>
+        <div class="form-group">
+          <label for="caja">Caja</label>
+          <button mat-button [matMenuTriggerFor]="cajaMenu" class="form-control">
+            <div class="valign-center">
+              <span class="Caja">{{ obtenerNombreCaja(coche.id_caja) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #cajaMenu="matMenu">
+            <button mat-menu-item *ngFor="let caja of cajas" (click)="coche.id_caja = caja.id_caja">
+              {{ caja.nombre_caja }}
+            </button>
+          </mat-menu>
+        </div>
+        <div class="form-group">
+          <label for="carburante">Carburante</label>
+          <button mat-button [matMenuTriggerFor]="carburanteMenu" class="form-control">
+            <div class="valign-center">
+              <span class="Carburante">{{ obtenerNombreCarburante(coche.id_carburante) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #carburanteMenu="matMenu">
+            <button mat-menu-item *ngFor="let carburante of carburantes" (click)="coche.id_carburante = carburante.id_carburante">
+              {{ carburante.carburante }}
+            </button>
+          </mat-menu>
+        </div>
+        <div class="form-group">
+          <label for="traccion">Tracción</label>
+          <button mat-button [matMenuTriggerFor]="traccionMenu" class="form-control">
+            <div class="valign-center">
+              <span class="Traccion">{{ obtenerNombreTraccion(coche.id_traccion) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #traccionMenu="matMenu">
+            <button mat-menu-item *ngFor="let traccion of tracciones" (click)="coche.id_traccion = traccion.id_traccion">
+              {{ traccion.traccion }}
+            </button>
+          </mat-menu>
+        </div>
+        <div class="form-group">
+          <label for="cilindrada">Cilindrada</label>
+          <button mat-button [matMenuTriggerFor]="cilindradaMenu" class="form-control">
+            <div class="valign-center">
+              <span class="Cilindrada">{{ obtenerNombreCilindrada(coche.id_cilindrada) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #cilindradaMenu="matMenu">
+            <button mat-menu-item *ngFor="let cilindrada of cilindradas" (click)="coche.id_cilindrada = cilindrada.id_cilindrada">
+              {{ cilindrada.cilindrada }}
+            </button>
+          </mat-menu>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar Cambios</button>
+      <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+    </div>
+    

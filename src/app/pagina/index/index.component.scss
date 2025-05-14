@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.video-container1 {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+     height: 50%;
+    margin: 0 auto;
+  }
+  
+  .video-container1 video {
+    width: 100%;
+    height: 50%;
+    display: block;
+  }
+  #myVideo1 {
+    object-fit: cover;
+    width: 100%;
+    height: 90vh;
+}
+
+  
+
+.slider-container {
+  width: 100%;
+  height: auto; /* Se ajusta automáticamente */
+  overflow: hidden; /* Oculta imágenes fuera del contenedor */
+  position: relative;
+  margin: auto;
+  display: grid;
+  place-items: center;
+}
+
+.slider {
+  display: flex;
+  flex-wrap: nowrap; /* Evita que las imágenes se junten */
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.imagen-audi {
+  height:80vh; /* Ajusta la altura */
+  width: 100%;
+  object-fit: cover; /* Ajusta sin distorsionar */
+  flex: 0 0 100%; /* Cada imagen ocupa 100% del slider */
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 50px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.0);
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.image-columns {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.column img {
+  width: 100%;
+  max-width: 300px; /* Ajusta el tamaño de las imágenes */
+  height: auto;
+  border-radius: 8px; /* Agrega bordes redondeados opcionalmente */
+}
+.car-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: calc(50% - 10px); /* para dos tarjetas por fila con gap */
+  padding: 80px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.car-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}

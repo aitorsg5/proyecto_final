@@ -1,0 +1,30 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="../../../assets/logo/audi_logo_blanco.svg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+    </a>
+    <div class="botones-container">
+      <div class="botones">
+        <button class="botones-admin" [ngClass]="{'active': currentRoute === '/usuarios'}" (click)="irAUsuario()">Usuario</button>
+        <button class="botones-admin" [ngClass]="{'active': currentRoute === '/motor'}" (click)="irAMotor()">Motor</button>
+        <button class="botones-admin" [ngClass]="{'active': currentRoute === '/caballos'}" (click)="irACaballos()">Caballos</button>
+        <button class="botones-admin" [ngClass]="{'active': currentRoute === '/cilindrada'}" (click)="irACilindrada()">Cilindrada</button>
+        <button class="botones-admin" [ngClass]="{'active': currentRoute === '/Caja'}" (click)="irACaja()">Caja</button>
+        <button class="botones-admin" [ngClass]="{'active': currentRoute === '/Carburante'}" (click)="irACarburante()">Carburante</button>
+        <button class="botones-admin" [ngClass]="{'active': currentRoute === '/modelo'}" (click)="irAModelo()">Modelo</button>
+        <button class="botones-admin" [ngClass]="{'active': currentRoute === '/traccion'}" (click)="irATraccion()">Traccion</button>
+        <button class="botones-admin" [ngClass]="{'active': currentRoute === '/coche'}" (click)="irACoche()">Coche</button>
+        <button class="botones-admin" [ngClass]="{'active': currentRoute === '/cesta'}" (click)="irACesta()">Cesta</button>
+        <button class="botones-admin" [ngClass]="{'active': currentRoute === '/pedido'}" (click)="irAPedido()">Pedido</button>
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</nav>

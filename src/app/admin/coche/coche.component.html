@@ -1,0 +1,141 @@
+<app-menu></app-menu>
+<div class="tabla-container">
+  <table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Fecha de Fabricación</th>
+        <th scope="col">Motor</th>
+        <th scope="col">Caballos</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Caja</th>
+        <th scope="col">Carburante</th>
+        <th scope="col">Tracción</th>
+        <th scope="col">Cilindrada</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Nuevo</th>
+        <td><input class="form-control" type="number" placeholder="Precio" [(ngModel)]="nuevoCoche.precio" required></td>
+        <td><input class="form-control" type="text" placeholder="Imagen" [(ngModel)]="nuevoCoche.imagen"></td>
+        <td><input class="form-control" type="text" placeholder="Descripción" [(ngModel)]="nuevoCoche.descripcion"></td>
+        <td><input class="form-control" type="date" placeholder="Fecha de Fabricación" [(ngModel)]="nuevoCoche.fecha_de_fabricacion"></td>
+        <td>
+          <button mat-button [matMenuTriggerFor]="motorMenu">
+            <div class="valign-center">
+              <span class="Motor">{{ obtenerNombreMotor(nuevoCoche.id_motor) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #motorMenu="matMenu">
+            <button mat-menu-item *ngFor="let motor of motores" (click)="nuevoCoche.id_motor = motor.id_motor">
+              {{ motor.motor }}
+            </button>
+          </mat-menu>
+        </td>
+        <td>
+          <button mat-button [matMenuTriggerFor]="caballosMenu">
+            <div class="valign-center">
+              <span class="Caballos">{{ obtenerNombreCaballos(nuevoCoche.id_caballos) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #caballosMenu="matMenu">
+            <button mat-menu-item *ngFor="let caballos of caballos" (click)="nuevoCoche.id_caballos = caballos.id">
+              {{ caballos.caballos }}
+            </button>
+          </mat-menu>
+        </td>
+        <td>
+          <button mat-button [matMenuTriggerFor]="modeloMenu">
+            <div class="valign-center">
+              <span class="Modelo">{{ obtenerNombreModelo(nuevoCoche.id_modelo) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #modeloMenu="matMenu">
+            <button mat-menu-item *ngFor="let modelo of modelos" (click)="nuevoCoche.id_modelo = modelo.id_modelo">
+              {{ modelo.modelo }}
+            </button>
+          </mat-menu>
+        </td>
+        <td>
+          <button mat-button [matMenuTriggerFor]="cajaMenu">
+            <div class="valign-center">
+              <span class="Caja">{{ obtenerNombreCaja(nuevoCoche.id_caja) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #cajaMenu="matMenu">
+            <button mat-menu-item *ngFor="let caja of cajas" (click)="nuevoCoche.id_caja = caja.id_caja">
+              {{ caja.nombre_caja }}
+            </button>
+          </mat-menu>
+        </td>
+        <td>
+          <button mat-button [matMenuTriggerFor]="carburanteMenu">
+            <div class="valign-center">
+              <span class="Carburante">{{ obtenerNombreCarburante(nuevoCoche.id_carburante) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #carburanteMenu="matMenu">
+            <button mat-menu-item *ngFor="let carburante of carburantes" (click)="nuevoCoche.id_carburante = carburante.id_carburante">
+              {{ carburante.carburante }}
+            </button>
+          </mat-menu>
+        </td>
+        <td>
+          <button mat-button [matMenuTriggerFor]="traccionMenu">
+            <div class="valign-center">
+              <span class="Traccion">{{ obtenerNombreTraccion(nuevoCoche.id_traccion) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #traccionMenu="matMenu">
+            <button mat-menu-item *ngFor="let traccion of tracciones" (click)="nuevoCoche.id_traccion = traccion.id_traccion">
+              {{ traccion.traccion }}
+            </button>
+          </mat-menu>
+        </td>
+        <td>
+          <button mat-button [matMenuTriggerFor]="cilindradaMenu">
+            <div class="valign-center">
+              <span class="Cilindrada">{{ obtenerNombreCilindrada(nuevoCoche.id_cilindrada) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #cilindradaMenu="matMenu">
+            <button mat-menu-item *ngFor="let cilindrada of cilindradas" (click)="nuevoCoche.id_cilindrada = cilindrada.id_cilindrada">
+              {{ cilindrada.cilindrada }}
+            </button>
+          </mat-menu>
+        </td>
+        <td><button class="btn btn-secondary" (click)="crearCoche()">Crear</button></td>
+      </tr>
+      <tr *ngFor="let coche of coches">
+        <th scope="row">{{ coche.id_coche }}</th>
+        <td>{{ coche.precio }}</td>
+        <td>{{ coche.imagen }}</td>
+        <td>{{ coche.descripcion }}</td>
+        <td>{{ coche.fecha_de_fabricacion | date }}</td>
+        <td>{{ obtenerNombreMotor(coche.id_motor) }}</td>
+        <td>{{ obtenerNombreCaballos(coche.id_caballos) }}</td>
+        <td>{{ obtenerNombreModelo(coche.id_modelo) }}</td>
+        <td>{{ obtenerNombreCaja(coche.id_caja) }}</td>
+        <td>{{ obtenerNombreCarburante(coche.id_carburante) }}</td>
+        <td>{{ obtenerNombreTraccion(coche.id_traccion) }}</td>
+        <td>{{ obtenerNombreCilindrada(coche.id_cilindrada) }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="eliminarCoche(coche.id_coche)">Eliminar</button>
+          <button class="btn btn-success" (click)="IrAModificarCoche(coche)">Modificar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

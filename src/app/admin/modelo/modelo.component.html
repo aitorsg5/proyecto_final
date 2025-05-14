@@ -1,0 +1,28 @@
+<app-menu></app-menu>
+<div class="tabla-container">
+  <table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Acciones</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Nuevo</th>
+        <td><input class="form-control" type="text" placeholder="Modelo" [(ngModel)]="nuevoModelo.modelo" required></td>
+        <td><button class="btn btn-secondary" (click)="crearModelo()">Crear</button></td>
+        <td><button class="btn btn-primary"(click)="resetFormulario()"> limpiar</button></td>
+
+      </tr>
+      <tr *ngFor="let modelo of modelos">
+        <th scope="row">{{modelo.id_modelo}}</th>
+        <td>{{modelo.modelo}}</td>
+        <td><button class="btn btn-danger" (click)="eliminarModelo(modelo.id_modelo)">Eliminar</button></td>
+        <td><button class="btn btn-success" (click)="IrAModificarModelo(modelo)">Modificar</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

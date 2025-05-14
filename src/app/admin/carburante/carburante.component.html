@@ -1,0 +1,28 @@
+<app-menu></app-menu>
+<div class="tabla-container">
+  <table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Carburante</th>
+        <th scope="col">Acciones</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Nuevo</th>
+        <td><input class="form-control" type="text" placeholder="Carburante" [(ngModel)]="nuevoCarburante.carburante" required></td>
+        <td><button class="btn btn-secondary" (click)="crearCarburante()">Crear</button></td>
+        <td><button class="btn btn-primary"(click)="resetFormulario()"> limpiar</button></td>
+
+      </tr>
+      <tr *ngFor="let carburante of carburantes">
+        <th scope="row">{{carburante.id_carburante}}</th>
+        <td>{{carburante.carburante}}</td>
+        <td><button class="btn btn-danger" (click)="eliminarCarburante(carburante.id_carburante)">Eliminar</button></td>
+        <td><button class="btn btn-success" (click)="IrAModificarCarburante(carburante)">Modificar</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

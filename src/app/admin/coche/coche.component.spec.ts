@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { CocheComponent } from './coche.component';
+
+describe('CocheComponent', () => {
+  let component: CocheComponent;
+  let fixture: ComponentFixture<CocheComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [CocheComponent]
+    });
+    fixture = TestBed.createComponent(CocheComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

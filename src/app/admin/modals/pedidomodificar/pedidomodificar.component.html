@@ -1,0 +1,55 @@
+<div class="modal-header">
+      <h5 class="modal-title">Modificar Pedido</h5>
+      <button type="button" class="close" aria-label="Close" (click)="cerrarModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form *ngIf="pedido">
+        <div class="form-group">
+          <label for="configuracion_cesta">Configuración de Cesta</label>
+          <button mat-button [matMenuTriggerFor]="cestaMenu" class="form-control">
+            <div class="valign-center">
+              <span>{{ obtenerNombreCesta(pedido.id_configuracion_cesta) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #cestaMenu="matMenu">
+            <button mat-menu-item *ngFor="let cesta of nuevasCestas" (click)="pedido.id_configuracion_cesta = cesta.id_configuracion">
+              {{ cesta.configuracion }}
+            </button>
+          </mat-menu>
+        </div>
+        <div class="form-group">
+          <label for="usuario">Usuario</label>
+          <button mat-button [matMenuTriggerFor]="usuarioMenu" class="form-control">
+            <div class="valign-center">
+              <span>{{ obtenerNombreUsuario(pedido.id_usuario) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #usuarioMenu="matMenu">
+            <button mat-menu-item *ngFor="let usuario of usuarios" (click)="pedido.id_usuario = usuario.id_usuario">
+              {{ usuario.nombre }}
+            </button>
+          </mat-menu>
+        </div>
+        <div class="form-group">
+          <label for="fecha_pedido">Fecha de Pedido</label>
+          <input type="date" id="fecha_pedido" [(ngModel)]="pedido.fecha_pedido" name="fecha_pedido" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="estado">Estado</label>
+          <select id="estado" [(ngModel)]="pedido.estado" name="estado" class="form-control">
+            <option value="pendiente">Pendiente</option>
+            <option value="completado">Completado</option>
+            <option value="anulado">Anulado</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar Cambios</button>
+      <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+    </div>
+    

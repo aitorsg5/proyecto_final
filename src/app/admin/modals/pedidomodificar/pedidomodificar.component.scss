@@ -1,0 +1,4 @@
+::ng-deep .cdk-overlay-container {
+      z-index: 1050;  // Asegúrate de que este z-index sea mayor que el del modal
+    }
+    

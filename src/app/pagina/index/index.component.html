@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+
+<div class="video-container1">
+    <video id="myVideo1" autoplay muted loop style="cursor: pointer;"></video>
+  </div>
+  
+  <div class="info-container">
+    <p>
+
+Filtro   de coches 
+ </p>
+  </div>
+  
+  <div class="slider-container">
+    <button class="slider-btn prev" (click)="prevSlide()">‹</button>
+  
+    <div class="slider" id="slider">
+      <img class="imagen-audi" *ngFor="let img of carImages" [src]="img" alt="Coche" />
+    </div>
+  
+    <button class="slider-btn next" (click)="nextSlide()">›</button>
+  </div>
+  <div class="image-columns">
+    <div class="car-card">
+      <img src="coche1.jpg" alt="Coche 1">
+      <h3>Audi A4</h3>
+      <p>Valor: $40,000</p>
+      <button>Ver detalles</button>
+    </div>
+
+    <div class="car-card">
+      <img src="coche2.jpg" alt="Coche 2">
+      <h3>Audi A6</h3>
+      <p>Valor: $50,000</p>
+      <button>Ver detalles</button>
+    </div>
+
+    <div class="car-card">
+      <img src="coche3.jpg" alt="Coche 3">
+      <h3>Audi Q5</h3>
+      <p>Valor: $55,000</p>
+      <button>Ver detalles</button>
+    </div>
+
+</div>
+
+  <app-footer></app-footer>

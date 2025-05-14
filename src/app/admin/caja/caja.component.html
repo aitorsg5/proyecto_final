@@ -1,0 +1,30 @@
+
+<app-menu></app-menu>
+<div class="tabla-container">
+  <table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre Caja</th>
+        <th scope="col">Acciones</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Nuevo</th>
+        <td><input class="usuario-admin" type="text" placeholder="caja" [(ngModel)]="nuevaCaja.nombre_caja" required></td>
+        <td><button class="btn btn-secondary" (click)="crearCaja()">Crear</button></td>
+        <td><button class="btn btn-primary"(click)="resetFormulario()"> limpiar</button></td>
+
+      </tr>
+      <tr *ngFor="let caja of caja">
+        <th scope="row">{{caja.id_caja}}</th>
+        <td>{{caja.nombre_caja}}</td>
+        <td><button class="btn btn-danger" (click)="eliminarCaja(caja.id_caja)">Eliminar</button></td>
+        <td><button class="btn btn-success" (click)="IrAModificarCaja(caja)">Modificar</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

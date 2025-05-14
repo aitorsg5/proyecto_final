@@ -1,0 +1,28 @@
+<app-menu></app-menu>
+<div class="tabla-container">
+  <table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tracción</th>
+        <th scope="col">Acciones</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Nuevo</th>
+        <td><input class="form-control" type="text" placeholder="Tracción" [(ngModel)]="nuevaTraccion.traccion" required></td>
+        <td><button class="btn btn-secondary" (click)="crearTraccion()">Crear</button></td>
+        <td><button class="btn btn-primary"(click)="resetFormulario()"> limpiar</button></td>
+
+      </tr>
+      <tr *ngFor="let traccion of tracciones">
+        <th scope="row">{{traccion.id_traccion}}</th>
+        <td>{{traccion.traccion}}</td>
+        <td><button class="btn btn-danger" (click)="eliminarTraccion(traccion.id_traccion)">Eliminar</button></td>
+        <td><button class="btn btn-success" (click)="IrAModificarTraccion(traccion)">Modificar</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

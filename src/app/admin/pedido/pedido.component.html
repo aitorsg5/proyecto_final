@@ -1,0 +1,66 @@
+<app-menu></app-menu>
+<div class="tabla-container">
+  <table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Configuración de Cesta</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Fecha Pedido</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Nuevo</th>
+        <td>
+          <button mat-button [matMenuTriggerFor]="cestaMenu" class="form-control">
+            <div class="valign-center">
+              <span>{{ obtenerNombreCesta(nuevoPedido.id_configuracion_cesta) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #cestaMenu="matMenu">
+            <button mat-menu-item *ngFor="let cesta of nuevasCestas" (click)="nuevoPedido.id_configuracion_cesta = cesta.id_configuracion">
+              {{ cesta.configuracion }}
+            </button>
+          </mat-menu>
+        </td>
+        <td>
+          <button mat-button [matMenuTriggerFor]="usuarioMenu" class="form-control">
+            <div class="valign-center">
+              <span>{{ obtenerNombreUsuario(nuevoPedido.id_usuario) }}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #usuarioMenu="matMenu">
+            <button mat-menu-item *ngFor="let usuario of usuarios" (click)="nuevoPedido.id_usuario = usuario.id_usuario">
+              {{ usuario.nombre }}
+            </button>
+          </mat-menu>
+        </td>
+        <td>{{ nuevoPedido.fecha_pedido | date }}</td>
+        <td>
+          <select class="form-control" [(ngModel)]="nuevoPedido.estado">
+            <option value="pendiente">Pendiente</option>
+            <option value="completado">Completado</option>
+            <option value="anulado">Anulado</option>
+          </select>
+        </td>
+        <td><button class="btn btn-secondary" (click)="crearPedido()">Crear</button></td>
+      </tr>
+      <tr *ngFor="let pedido of pedidos">
+        <th scope="row">{{ pedido.id_pedido }}</th>
+        <td>{{ obtenerNombreCesta(pedido.id_configuracion_cesta) }}</td>
+        <td>{{ obtenerNombreUsuario(pedido.id_usuario) }}</td>
+        <td>{{ pedido.fecha_pedido | date }}</td>
+        <td>{{ pedido.estado }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="eliminarPedido(pedido.id_pedido)">Eliminar</button>
+          <button class="btn btn-success" (click)="irAModificarPedido(pedido)">Modificar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

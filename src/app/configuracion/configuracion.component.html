@@ -1,0 +1,47 @@
+<div class="configurator-wrapper">
+
+  <!-- Imagen o slider del coche -->
+  <div class="vehicle-image">
+    <img [src]="carImageUrl" alt="Coche configurado" />
+  </div>
+
+  <!-- Panel de opciones -->
+  <div class="options-panel">
+    <mat-form-field appearance="fill">
+      <mat-label>Caballos</mat-label>
+      <mat-select [(ngModel)]="selectedOptions.hp">
+        <mat-option *ngFor="let hp of horsepowerOptions" [value]="hp">
+          {{ hp }} CV
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <label>Transmisión:</label>
+    <mat-button-toggle-group [(ngModel)]="selectedOptions.transmission">
+      <mat-button-toggle value="manual">Manual</mat-button-toggle>
+      <mat-button-toggle value="auto">Automática</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <label>Carburante:</label>
+    <mat-button-toggle-group [(ngModel)]="selectedOptions.fuel">
+      <mat-button-toggle value="gasolina">Gasolina</mat-button-toggle>
+      <mat-button-toggle value="diesel">Diésel</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Motor</mat-label>
+      <mat-select [(ngModel)]="selectedOptions.engine">
+        <mat-option value="4cil">4 cilindros</mat-option>
+        <mat-option value="v12">V12</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <label>Tracción:</label>
+    <mat-button-toggle-group [(ngModel)]="selectedOptions.drive">
+      <mat-button-toggle value="delantera">Delantera</mat-button-toggle>
+      <mat-button-toggle value="4x4">4x4</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <button mat-raised-button color="primary" (click)="buy()">Comprar</button>
+  </div>
+</div>

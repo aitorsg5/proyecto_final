@@ -1,0 +1,67 @@
+<app-menu></app-menu>
+<div class="tabla-container">
+  <table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">nombre</th>
+        <th scope="col">email</th>
+        <th scope="col">password</th>
+        <th scope="col">estado</th>
+        <th scope="col">direccion</th>
+        <th scope="col">rol</th>
+        <th scope="col">fecha de creacion</th>
+        <th scope="col">Acciones</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Nuevo</th>
+        <td><input class="usuario-admin" type="text" placeholder="Nombre" [(ngModel)]="nuevoUsuario.nombre" required></td>
+        <td><input class="usuario-admin" type="email" placeholder="Correo electrónico" [(ngModel)]="nuevoUsuario.email" required></td>
+        <td><input class="usuario-admin" type="text" placeholder="Password" [(ngModel)]="nuevoUsuario.password" required></td>
+        <td>
+          <button mat-button [matMenuTriggerFor]="estadomenu">
+            <div class="valign-center">
+              <span class="Estado-usuario">{{nuevoUsuario.estado}}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #estadomenu="matMenu">
+            <button mat-menu-item (click)="cambiarEstado('activo')">Activo</button>
+            <button mat-menu-item (click)="cambiarEstado('deshabilitado')">Deshabilitado</button>
+          </mat-menu>
+        </td>
+        <td><input class="usuario-admin" type="text" placeholder="Dirección" [(ngModel)]="nuevoUsuario.direccion" required></td>
+        <td>
+          <button mat-button [matMenuTriggerFor]="rolMenu">
+            <div class="valign-center">
+              <span class="rol-usuario">{{nuevoUsuario.es_admin ? 'Admin' : 'Usuario'}}</span>
+              <i class="material-icons">arrow_drop_down</i>
+            </div>
+          </button>
+          <mat-menu #rolMenu="matMenu">
+            <button mat-menu-item (click)="cambiarRol(true)">Admin</button>
+            <button mat-menu-item (click)="cambiarRol(false)">Usuario</button>
+          </mat-menu>
+        </td>
+        <td>{{nuevoUsuario.fecha_creacion | date}}</td>
+        <td><button class="btn btn-secondary" (click)="crearUsuario()"> Crear</button></td>
+        <td><button class="btn btn-primary" (click)="resetFormulario()"> limpiar</button></td>
+      </tr>
+      <tr *ngFor="let usuario of Usuarios">
+        <th scope="row">{{usuario.id_usuario}}</th>
+        <td>{{usuario.nombre}}</td>
+        <td>{{usuario.email}}</td>
+        <td>{{usuario.password}}</td>
+        <td>{{usuario.estado}}</td>
+        <td>{{usuario.direccion}}</td>
+        <td>{{usuario.es_admin ? 'Admin' : 'Usuario'}}</td>
+        <td>{{usuario.fecha_creacion | date}}</td>
+        <td><button class="btn btn-danger" (click)="eliminarUsuario(usuario.id_usuario)"> Eliminar</button></td>
+        <td><button class="btn btn-success" (click)="IrAmodificarusuario(usuario)">Modificar</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
