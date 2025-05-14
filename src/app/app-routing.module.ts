@@ -18,7 +18,7 @@ import { ModeloComponent } from './admin/modelo/modelo.component';
 import { TraccionComponent } from './admin/traccion/traccion.component';
 import { CocheComponent } from './admin/coche/coche.component';
 import { CestaComponent } from './admin/cesta/cesta.component';
-
+import { PerfilDeUsuarioComponent } from './perfil-de-usuario/perfil-de-usuario.component';
 import { PedidoComponent } from './admin/pedido/pedido.component';
 
 import { ConfiguracionComponent } from './configuracion/configuracion.component';
@@ -31,6 +31,7 @@ const routes: Routes = [
   { path: 'index', component: IndexComponent },
   { path: 'coches', component: ListaDeCochesComponent },
   { path: 'Configuracion', component: ConfiguracionComponent },
+  { path: 'Perfil', component: PerfilDeUsuarioComponent },
   { path: 'usuarios', component: UsuarioComponent, canActivate: [AdminGuard] }, // Añade el guardia de ruta aquí
   { path: 'motor', component: MotorComponent },
   { path: 'caballos', component: CaballosComponent },

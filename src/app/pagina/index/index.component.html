@@ -5,12 +5,64 @@
     <video id="myVideo1" autoplay muted loop style="cursor: pointer;"></video>
   </div>
   
-  <div class="info-container">
-    <p>
-
-Filtro   de coches 
- </p>
-  </div>
+ 
+    <div class="filters">
+        <input type="checkbox" id="todos" checked>
+        <label for="todos">Todos</label>
+        <button>100% eléctrico</button>
+        <button>Híbrido enchufable</button>
+        <button>Sportback</button>
+        <button>allstreet</button>
+        <button>Sedan</button>
+        <button>Sport</button>
+        <button>Avant</button>
+        <button>Deportivo</button>
+        <button>SUV</button>
+    </div>
+    
+    <div class="car-gallery">
+        <div class="car">
+            <img src="audi1.jpg" alt="Audi A1">
+            <h3>Audi A1</h3>
+            <p>2 modelos</p>
+        </div>
+        <div class="car">
+            <img src="audi3.jpg" alt="Audi A3">
+            <h3>Audi A3</h3>
+            <p>9 modelos</p>
+        </div>
+        <div class="car">
+            <img src="audi5.jpg" alt="Audi A5">
+            <h3>Audi A5</h3>
+            <p>6 modelos</p>
+        </div>
+        <div class="car">
+            <img src="audi6.jpg" alt="Audi A6">
+            <h3>Audi A6</h3>
+            <p>6 modelos</p>
+        </div>
+        <div class="car">
+            <img src="audi_etron.jpg" alt="Audi e-tron">
+            <h3>A6 e-tron</h3>
+            <p>4 modelos</p>
+        </div>
+        <div class="car">
+            <img src="audi7.jpg" alt="Audi A7">
+            <h3>Audi A7</h3>
+            <p>2 modelos</p>
+        </div>
+        <div class="car">
+            <img src="audi8.jpg" alt="Audi A8">
+            <h3>Audi A8</h3>
+            <p>5 modelos</p>
+        </div>
+        <div class="car">
+            <img src="audi_etron2.jpg" alt="Audi e-tron">
+            <h3>Audi e-tron</h3>
+            <p>4 modelos</p>
+        </div>
+    </div>
+ 
   
   <div class="slider-container">
     <button class="slider-btn prev" (click)="prevSlide()">‹</button>
@@ -21,28 +73,7 @@ Filtro   de coches
   
     <button class="slider-btn next" (click)="nextSlide()">›</button>
   </div>
-  <div class="image-columns">
-    <div class="car-card">
-      <img src="coche1.jpg" alt="Coche 1">
-      <h3>Audi A4</h3>
-      <p>Valor: $40,000</p>
-      <button>Ver detalles</button>
-    </div>
 
-    <div class="car-card">
-      <img src="coche2.jpg" alt="Coche 2">
-      <h3>Audi A6</h3>
-      <p>Valor: $50,000</p>
-      <button>Ver detalles</button>
-    </div>
 
-    <div class="car-card">
-      <img src="coche3.jpg" alt="Coche 3">
-      <h3>Audi Q5</h3>
-      <p>Valor: $55,000</p>
-      <button>Ver detalles</button>
-    </div>
-
-</div>
 
   <app-footer></app-footer>

@@ -50,15 +50,16 @@
   }
   
   .user-menu {
+        margin-left: auto; /* Empuja el icono hacia la derecha */
+
     position: relative;
   }
   
   .dropdown-menu {
     justify-content: flex-end; /* Alinea los elementos a la izquierda */
-
     position: absolute;
     top: 100%;
-    right: 0;
+    margin-left: 1635px;   
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 8px;

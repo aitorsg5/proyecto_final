@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-header',
@@ -6,18 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  menuVisible = false; // Controla la visibilidad del menú desplegable
-  userName = 'Juan Pérez'; // Nombre del usuario (esto sería dinámico en un caso real)
-  userEmail = 'juan.perez@email.com'; // Correo del usuario (esto también sería dinámico)
-
-  // Función para alternar la visibilidad del menú
+  menuVisible = false; 
+  userName = 'Juan Pérez'; 
+  userEmail = 'juan.perez@email.com'; 
+  constructor(private router: Router) {} 
   toggleMenu() {
     this.menuVisible = !this.menuVisible;
   }
 
-  // Funciones para las opciones del menú
   editName() {
-    console.log('Poner tu nombre');
+    this.router.navigate(['/Perfil']); 
   }
 
   editEmail() {
@@ -26,6 +25,5 @@ export class HeaderComponent {
 
   logout() {
     console.log('Cerrar sesión');
-    // Aquí podrías redirigir o hacer la lógica de logout
   }
 }

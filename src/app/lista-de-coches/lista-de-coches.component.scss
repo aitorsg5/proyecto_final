@@ -1,79 +1,91 @@
+$primary-color: #f0f0f0;
+$secondary-color: #ffffff;
+$text-color: #333;
+$button-bg: #000;
+$button-color: #fff;
 
-.container1 {
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: $primary-color;
+}
+
+.container {
     display: flex;
-    width: 100%;
-    height: 100vh;
-    padding: 70px 0; /* solo padding arriba y abajo */
-    gap: 80px;
-    justify-content: space-between; 
-  }
-/* Estilo para los botones */
-.btn-modelos {
-    background-color: transparent; /* Fondo transparente */
-    color: black; /* Color de texto negro */
-    border: 2px solid black; /* Borde negro de 2px */
-    padding: 10px 20px; /* Espaciado interno */
-    font-size: 16px; /* Tamaño de la fuente */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Aparece como cursor de mano */
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-bottom: 10px; /* Separación entre los botones */
-  }
-  
-  .btn-modelos:hover {
-    background-color: #f0f0f0; /* Color de fondo al pasar el ratón (gris claro) */
-    color: #0a2e6e; /* Cambia el color del texto a azul oscuro */
-    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
-  }
-  
+}
 
-  
-  
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  
-  ul li {
-    padding: 8px 0;
-    font-size: 16px;
-    color: #333;
-  }
-  
-  
-  .columna-izquierda {
+.sidebar {
     width: 25%;
-    height: auto;
-   
-    flex-direction: column;
-    justify-content: flex-start;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Borde sombreado */
-
-
-  }
-  
-  .columna-derecha {
-    width: 70%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    padding: 20px;
+    background-color: $secondary-color;
     
-  }
-  
-  .car-card {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: calc(50% - 10px); /* para dos tarjetas por fila con gap */
-    padding: 80px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: center;
-  }
-  
-  .car-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-  }
-  
+    h2, h3 {
+        margin: 10px 0;
+    }
+
+    .modelo-buttons, .tipo-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        button {
+            border: 1px solid #ccc;
+            background: transparent;
+            padding: 10px;
+            cursor: pointer;
+            &:hover {
+                background-color: $button-bg;
+                color: $button-color;
+            }
+        }
+    }
+}
+
+.modelos-display {
+    width: 75%;
+    padding: 20px;
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    .modelo-card {
+        background: $secondary-color;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 20px;
+        text-align: center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h3 {
+            margin: 10px 0;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            background-color: $button-bg;
+            color: $button-color;
+            border: none;
+            cursor: pointer;
+
+            &:hover {
+                background-color: darken($button-bg, 10%);
+            }
+        }
+
+        .stock {
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        p {
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+    }
+}

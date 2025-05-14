@@ -42,6 +42,7 @@ import { ConfiguracionComponent } from './configuracion/configuracion.component'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { PerfilDeUsuarioComponent } from './perfil-de-usuario/perfil-de-usuario.component';
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     FooterComponent,
     ListaDeCochesComponent,
     ConfiguracionComponent,
+    PerfilDeUsuarioComponent,
 
     
     
