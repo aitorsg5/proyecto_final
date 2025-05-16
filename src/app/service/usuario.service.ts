@@ -11,7 +11,7 @@ import  listadeusuarios  from '../../../usuarios.json'
 })
 export class UsuarioService {
 
-  private url = 'http://localhost:3000/usuarios'; // sin "/api"
+  private url = 'http://localhost:8000/api/usuarios'; 
   
 
 private isLoggedIn = false; // Iniciaremos la variable en false para indicar que el usuario no esta autenticado en principio
