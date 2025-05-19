@@ -1,0 +1,25 @@
+<div class="contenedor-register">
+  <div class="card-register">
+    <div class="titulo">Perfil del usuario</div>
+    <form (ngSubmit)="crearUsuario()">
+      <div class="form-group">
+        <input type="text" name="nombre" placeholder="Nombre" [(ngModel)]="nuevoUsuario.nombre" required>
+      </div>
+      <div class="form-group">
+        <input type="email" name="Correo electronico" placeholder="Correo electrónico" [(ngModel)]="nuevoUsuario.email" required>
+      </div>
+      <div class="form-group">
+        <input type="password" name="contraseña" placeholder="Contraseña" [(ngModel)]="nuevoUsuario.password" required>
+      </div>
+
+      <button type="submit" class="btn-login">Realizar cambios</button>
+      <button type="button" class="btn-login" routerLink="/index">Cancelar</button>
+    </form>
+  </div>
+</div>
+<div class="video">
+  <video autoplay muted loop id="myVideo">
+    <source src="../../assets/video/Audi_r8_Register.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
